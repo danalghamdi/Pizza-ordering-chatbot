@@ -1,0 +1,693 @@
+{
+  "intents": [
+    {
+      "intent": "exit",
+      "examples": [
+        {
+          "text": "cancel"
+        },
+        {
+          "text": "exit"
+        },
+        {
+          "text": "get me out"
+        },
+        {
+          "text": "get me out of here"
+        },
+        {
+          "text": "good"
+        },
+        {
+          "text": "i'm done"
+        },
+        {
+          "text": "no"
+        },
+        {
+          "text": "thanks"
+        },
+        {
+          "text": "thank you"
+        },
+        {
+          "text": "thnk"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "help",
+      "examples": [
+        {
+          "text": "help"
+        },
+        {
+          "text": "help [lease"
+        },
+        {
+          "text": "I don't understand"
+        },
+        {
+          "text": "what can i do"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "order",
+      "examples": [
+        {
+          "text": "Can i get a vegi pizza, large please"
+        },
+        {
+          "text": "I want to order a large pizza"
+        },
+        {
+          "text": "I want to order pizza"
+        },
+        {
+          "text": "margaretta"
+        },
+        {
+          "text": "Order pizza"
+        },
+        {
+          "text": "veg"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "reset",
+      "examples": [
+        {
+          "text": "begin"
+        },
+        {
+          "text": "delet the input"
+        },
+        {
+          "text": "reset"
+        },
+        {
+          "text": "start again"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "extra_confirmed",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "no",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "yes",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "pizza_place",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "go",
+          "synonyms": [
+            "home",
+            "take",
+            "take out"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "stay",
+          "synonyms": [
+            "eat in",
+            "restaurant",
+            "staying"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "pizza_size",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "large",
+          "synonyms": [
+            "L"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "medium",
+          "synonyms": [
+            "M",
+            "med"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "small",
+          "synonyms": [
+            "S"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "pizza_topping",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Basil",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Black olives",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Chesse",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Gorgonzola",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Green pepper",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Mushroom",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Onion",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Pepperoni",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Sausage",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Tomato",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "pizza_type",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Cheese & Garlic",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Hawaiian",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Margherita",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Pepperoni",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Quattro Formaggio",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Vegetarian",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_6_1625989136182",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "What size of pizza do you want (Small, Meduim, Large)?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_3_1625905669809",
+      "event_name": "focus",
+      "dialog_node": "handler_10_1625905669866",
+      "previous_sibling": "handler_1_1625905669866"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_9_1625905718954",
+      "context": {
+        "pizza_type": "@pizza_type"
+      },
+      "conditions": "@pizza_type",
+      "event_name": "input",
+      "dialog_node": "handler_10_1625905718964"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_3_1625905669809",
+      "context": {
+        "pizza_size": "@pizza_size"
+      },
+      "conditions": "@pizza_size",
+      "event_name": "input",
+      "dialog_node": "handler_1_1625905669866"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Any extra toppings?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_4_1625905749049",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1625905749057",
+      "previous_sibling": "handler_4_1625905749057"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "No extra toppings, OK."
+              }
+            ],
+            "response_type": "text"
+          }
+        ]
+      },
+      "parent": "slot_4_1625905749049",
+      "conditions": "@extra_confirmed:no",
+      "event_name": "nomatch",
+      "dialog_node": "handler_1_1625907297917",
+      "previous_sibling": "handler_9_1625907116311"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_4_1625905749049",
+      "context": {
+        "pizza_topping": "@pizza_topping.values"
+      },
+      "conditions": "@pizza_topping.values",
+      "event_name": "input",
+      "dialog_node": "handler_4_1625905749057"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_10_1625905822671",
+      "event_name": "focus",
+      "dialog_node": "handler_4_1625905822673",
+      "previous_sibling": "handler_6_1625905822673"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "you can choosw size (small,medium,large)"
+              }
+            ],
+            "response_type": "text"
+          }
+        ]
+      },
+      "parent": "node_6_1625905634515",
+      "conditions": "#help",
+      "event_name": "generic",
+      "dialog_node": "handler_5_1625984209037",
+      "previous_sibling": "response_2_1625984802016"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_10_1625905822671",
+      "context": {
+        "pizza_place": "@pizza_place"
+      },
+      "conditions": "@pizza_place",
+      "event_name": "input",
+      "dialog_node": "handler_6_1625905822673"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "OK, adding one extra @toppings"
+              }
+            ],
+            "response_type": "text"
+          }
+        ]
+      },
+      "parent": "slot_4_1625905749049",
+      "conditions": "@pizza_topping.length==1",
+      "event_name": "filled",
+      "dialog_node": "handler_6_1625906984951",
+      "previous_sibling": "handler_1_1625905749057"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Which topping would you like @pizza_topping.values"
+              }
+            ],
+            "response_type": "text"
+          }
+        ]
+      },
+      "parent": "slot_4_1625905749049",
+      "conditions": "@extra_confirmed:yes",
+      "event_name": "nomatch",
+      "dialog_node": "handler_7_1625907348498",
+      "previous_sibling": "handler_1_1625907297917"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "What type of pizza do you want?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_9_1625905718954",
+      "event_name": "focus",
+      "dialog_node": "handler_9_1625905718964",
+      "previous_sibling": "handler_10_1625905718964"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "OK, adding @pizza_toppings.length more toppings to your pizza."
+              }
+            ],
+            "response_type": "text"
+          }
+        ]
+      },
+      "parent": "slot_4_1625905749049",
+      "conditions": "@pizza_topping.length>1",
+      "event_name": "filled",
+      "dialog_node": "handler_9_1625907116311",
+      "previous_sibling": "handler_6_1625906984951"
+    },
+    {
+      "type": "standard",
+      "title": "reset",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Let's start over."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "pizza_size": null,
+        "pizza_type": null,
+        "pizza_place": null,
+        "pizza_toppings": null
+      },
+      "conditions": "#reset",
+      "dialog_node": "node_1_1625984146006",
+      "previous_sibling": "node_6_1625905634515"
+    },
+    {
+      "type": "standard",
+      "title": "welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello.how can i help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_4_1625903617170"
+    },
+    {
+      "type": "frame",
+      "title": "Pizza Ordering",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "#order",
+      "dialog_node": "node_6_1625905634515",
+      "previous_sibling": "node_4_1625903617170"
+    },
+    {
+      "type": "standard",
+      "title": "exit",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "#exit",
+      "dialog_node": "node_6_1625989136182",
+      "previous_sibling": "node_1_1625984146006"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Thank you for ordering a $pizza_size $pizza_type pizza with <?$pizza_topping.join(',')?>"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1625905634515",
+      "conditions": "@pizza_topping && @pizza_topping.size()>0",
+      "dialog_node": "response_2_1625984802016",
+      "previous_sibling": "response_3_1625984599298"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Thank you for ordering $pizza_size $pizza_type pizza with <?$pizza_topping.join(',')?>. ."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          },
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1625905634515",
+      "context": {},
+      "conditions": "@pizza_topping && @pizza_topping.size()>0 && @pizza_place",
+      "dialog_node": "response_3_1625984599298"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "text": {
+          "values": [
+            "Thank you for ordering a $pizza_size $pizza_type pizza with <?$pizza_topping.join(',')?>"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_6_1625989136182",
+      "conditions": "@pizza_topping && @pizza_topping.size()>0",
+      "dialog_node": "response_7_1625989162146"
+    },
+    {
+      "type": "slot",
+      "parent": "node_6_1625905634515",
+      "variable": "$pizza_place",
+      "dialog_node": "slot_10_1625905822671",
+      "previous_sibling": "slot_4_1625905749049"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_6_1625905634515",
+      "variable": "$pizza_size",
+      "dialog_node": "slot_3_1625905669809",
+      "previous_sibling": "handler_5_1625984209037"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_6_1625905634515",
+      "variable": "$pizza_topping",
+      "dialog_node": "slot_4_1625905749049",
+      "previous_sibling": "slot_9_1625905718954"
+    },
+    {
+      "type": "slot",
+      "parent": "node_6_1625905634515",
+      "variable": "$pizza_type",
+      "dialog_node": "slot_9_1625905718954",
+      "previous_sibling": "slot_3_1625905669809"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "talk",
+  "language": "en",
+  "description": ""
+}
